@@ -71,6 +71,9 @@ Devise a strategy for filling in all of the missing values in the dataset. The s
 
 Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
+The strategy is to find the missing rows, then use the pre-calculated per interval means to replace the NA values.
+
+
 ```{r}
 step.filled <- step.data
 
