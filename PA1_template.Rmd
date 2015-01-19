@@ -74,10 +74,14 @@ Create a new dataset that is equal to the original dataset but with the missing 
 ```{r}
 step.filled <- step.data
 
+# First we find all the rows with missing step data and extract the interval values for these data
+
 missing.intervals <- step.data$interval[is.na(step.filled$steps)]
 
 # Having obtained the interval id for each of the rows with missing step data
-# we can use them to index the means we already computed.
+# we can use them to index the means we already computed.  This allows us
+# to substitute the mean (averaged over all the days) for that interval as the NA
+# steps
 
 step.filled$steps[is.na(step.filled$steps)] <- sapply(missing.intervals, FUN = function(i) {interval.means$steps[interval.means$interval == i]})
 ```

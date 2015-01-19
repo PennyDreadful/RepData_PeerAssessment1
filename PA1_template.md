@@ -112,18 +112,6 @@ missing.intervals <- step.data$interval[is.na(step.filled$steps)]
 # we can use them to index the means we already computed.
 
 step.filled$steps[is.na(step.filled$steps)] <- sapply(missing.intervals, FUN = function(i) {interval.means$steps[interval.means$interval == i]})
-
-head(step.filled)
-```
-
-```
-##       steps       date interval minutes
-## 1 1.7169811 2012-10-01        0       0
-## 2 0.3396226 2012-10-01        5       5
-## 3 0.1320755 2012-10-01       10      10
-## 4 0.1509434 2012-10-01       15      15
-## 5 0.0754717 2012-10-01       20      20
-## 6 2.0943396 2012-10-01       25      25
 ```
 
 Make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
